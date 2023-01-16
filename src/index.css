@@ -1,7 +1,13 @@
 @font-face {
-  font-family: 'RobotoMono';
+  font-family: 'Roboto-Black';
   font-display: swap;
-  src: url('./assets/RobotoMono.ttf') format('ttf');
+  src: url('./assets/Roboto-Black.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-display: swap;
+  src: url('./assets/Roboto-Bold.ttf') format('ttf');
 }
 
 *,
@@ -19,7 +25,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto-Bold';
 }
 
 p {

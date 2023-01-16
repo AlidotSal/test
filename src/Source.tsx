@@ -1,7 +1,6 @@
-import { createSignal, createEffect, Show } from "solid-js";
-import type { Setter } from "solid-js";
-import { createAnimated } from "./utils/hooks";
+import { createEffect, Show } from "solid-js";
 import { animateTo } from "./utils/animation";
+import { useStore } from "./store";
 import iconChart from './assets/images/chart_bar.svg';
 import "./source.css";
 
@@ -21,21 +20,20 @@ function Digit(props: { value: string; speed: number; parent: HTMLElement }) {
     );
 }
 
-function DebugUI(props: { amount: number; setInput: Setter<number>; setEarned: Setter<string> }) {
+function DebugUI() {
+    const { amount, setEarned, setInput } = useStore();
 
     return (
         <section class="debug">
-            <input type="text" onChange={e => props.setInput(parseInt(e.target.value))}></input>
-            <button onClick={() => props.setEarned("+200")}>add</button>
-            <button onClick={() => props.setEarned(`-${Math.floor(0.1 * props.amount)}`)}>death</button>
+            <input type="text" onChange={e => setInput(parseInt(e.target.value))}></input>
+            <button onClick={() => setEarned("+200")}>add</button>
+            <button onClick={() => setEarned(`-${Math.floor(0.1 * amount())}`)}>death</button>
         </section>
     );
 }
 
 export default function Source() {
-    const [amount, addAmount, setAmount] = createAnimated(0);
-    const [earned, setEarned] = createSignal("+100", { equals: false });
-    const [input, setInput] = createSignal(0);
+    const { amount, addAmount, setAmount, earned, input } = useStore();
     const numbers = () => {
         const nums: string[] = [];
         for (let i = 0; i < earned().length; i++) {
@@ -89,7 +87,7 @@ export default function Source() {
                 </div>
                 <p class="total"><img src={iconChart} />{amount()}</p>
             </section>
-            <DebugUI amount={amount()} setInput={setInput} setEarned={setEarned} />
+            <DebugUI />
         </>
     );
 }
