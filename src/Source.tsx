@@ -59,7 +59,7 @@ export default function Source() {
     })
 
     createEffect(() => {
-        earned();
+        const earnedValue = earned();
         const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
         animateTo(
             sourceEl,
@@ -76,7 +76,7 @@ export default function Source() {
             { duration: EARNED_VISIBLE_TIME, delay: opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 : 0 },
         );
         setTimeout(
-            () => addAmount(parseInt(earned())),
+            () => addAmount(parseInt(earnedValue)),
             opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.75 * EARNED_VISIBLE_TIME,
         );
     });
