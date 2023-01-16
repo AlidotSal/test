@@ -77,7 +77,7 @@ export default function Source() {
         );
         setTimeout(
             () => addAmount(parseInt(earnedValue)),
-            opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.75 * EARNED_VISIBLE_TIME,
+            opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.8 * EARNED_VISIBLE_TIME,
         );
     });
 
