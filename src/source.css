@@ -1,0 +1,217 @@
+.debug {
+  position: relative;
+  top: 2rem;
+}
+
+.source {
+  display: grid;
+  grid-auto-rows: 1em;
+  width: fit-content;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  opacity: 0;
+}
+
+.total {
+  text-align: end;
+}
+
+.total>img {
+  width: auto;
+  height: 100%;
+  margin-right: 4px;
+}
+
+.earned {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  grid-auto-columns: 0.6em;
+  grid-auto-rows: 1em;
+}
+
+.digits {
+  width: 100%;
+  overflow: hidden;
+}
+
+.digits>div {
+  display: inline-block;
+  animation-fill-mode: both;
+}
+
+.digits .delay {
+  animation-delay: 0.5s;
+}
+
+.digits .speed-1 {
+  animation-duration: 0.35s;
+}
+
+.digits .speed-2 {
+  animation-duration: 0.4s;
+}
+
+.digits .speed-3 {
+  animation-duration: 0.45s;
+}
+
+.digits .speed-4 {
+  animation-duration: 0.5s;
+}
+
+.digits .speed-5 {
+  animation-duration: 0.55s;
+}
+
+.digits .num-0 {
+  animation-name: zero;
+  animation-timing-function: steps(10, start);
+}
+
+.digits .num-1 {
+  animation-name: one;
+  animation-timing-function: steps(1, start);
+}
+
+.digits .num-2 {
+  animation-name: two;
+  animation-timing-function: steps(2, start);
+}
+
+.digits .num-3 {
+  animation-name: three;
+  animation-timing-function: steps(3, start);
+}
+
+.digits .num-4 {
+  animation-name: four;
+  animation-timing-function: steps(4, start);
+}
+
+.digits .num-5 {
+  animation-name: five;
+  animation-timing-function: steps(5, start);
+}
+
+.digits .num-6 {
+  animation-name: six;
+  animation-timing-function: steps(6, start);
+}
+
+.digits .num-7 {
+  animation-name: seven;
+  animation-timing-function: steps(7, start);
+}
+
+.digits .num-8 {
+  animation-name: eight;
+  animation-timing-function: steps(8, start);
+}
+
+.digits .num-9 {
+  animation-name: nine;
+  animation-timing-function: steps(9, start);
+}
+
+@keyframes zero {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes one {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes two {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes three {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-30%);
+  }
+}
+
+@keyframes four {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-40%);
+  }
+}
+
+@keyframes five {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes six {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-60%);
+  }
+}
+
+@keyframes seven {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-70%);
+  }
+}
+
+@keyframes eight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-80%);
+  }
+}
+
+@keyframes nine {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-90%);
+  }
+}
