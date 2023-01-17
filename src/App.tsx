@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
 import { StoreProvider } from "./store";
-import Source from "./Source";
+import Source from "./components/Source";
 
 const App: Component = () => {
 

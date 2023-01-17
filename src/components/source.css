@@ -30,11 +30,12 @@
 }
 
 .source {
+  --source-font-size: 1rem;
   display: grid;
   grid-auto-rows: 1em;
   width: fit-content;
   height: 2rem;
-  font-size: 1rem;
+  font-size: var(--source-font-size);
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #fff;
@@ -55,19 +56,17 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
-  grid-auto-columns: 0.6em;
-  grid-auto-rows: 1em;
 }
 
 .number {
   width: 100%;
-  height: 1rem;
+  height: var(--source-font-size);
   overflow: hidden;
 }
 
 .digits {
   display: grid;
-  grid-template-rows: repeat(10, 1rem);
+  grid-template-rows: repeat(10, var(--source-font-size));
   animation-fill-mode: both;
 }
 
@@ -154,7 +153,7 @@
   }
 
   to {
-    transform: translateY(-10rem);
+    transform: translateY(calc(-10*var(--source-font-size)));
   }
 }
 
@@ -164,7 +163,7 @@
   }
 
   to {
-    transform: translateY(-1rem);
+    transform: translateY(calc(-1*var(--source-font-size)));
   }
 }
 
@@ -174,7 +173,7 @@
   }
 
   to {
-    transform: translateY(-2rem);
+    transform: translateY(calc(-2*var(--source-font-size)));
   }
 }
 
@@ -184,7 +183,7 @@
   }
 
   to {
-    transform: translateY(-3rem);
+    transform: translateY(calc(-3*var(--source-font-size)));
   }
 }
 
@@ -194,7 +193,7 @@
   }
 
   to {
-    transform: translateY(-4rem);
+    transform: translateY(calc(-4*var(--source-font-size)));
   }
 }
 
@@ -204,7 +203,7 @@
   }
 
   to {
-    transform: translateY(-5rem);
+    transform: translateY(calc(-5*var(--source-font-size)));
   }
 }
 
@@ -214,7 +213,7 @@
   }
 
   to {
-    transform: translateY(-6rem);
+    transform: translateY(calc(-6*var(--source-font-size)));
   }
 }
 
@@ -224,7 +223,7 @@
   }
 
   to {
-    transform: translateY(-7rem);
+    transform: translateY(calc(-7*var(--source-font-size)));
   }
 }
 
@@ -234,7 +233,7 @@
   }
 
   to {
-    transform: translateY(-8rem);
+    transform: translateY(calc(-8*var(--source-font-size)));
   }
 }
 
@@ -244,6 +243,6 @@
   }
 
   to {
-    transform: translateY(-9rem);
+    transform: translateY(calc(-9*var(--source-font-size)));
   }
 }

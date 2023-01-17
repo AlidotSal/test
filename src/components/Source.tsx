@@ -1,7 +1,8 @@
 import { createEffect, Show } from "solid-js";
-import { animateTo } from "./utils/animation";
-import { useStore } from "./store";
-import iconChart from './assets/images/chart_bar.svg';
+import { animateTo } from "../utils/animation";
+import { useStore } from "../store";
+import DebugUI from "./DebugUI";
+import iconChart from '../assets/images/chart_bar.svg';
 import "./source.css";
 
 function Digit(props: { value: string; speed: number; parent: HTMLElement }) {
@@ -27,18 +28,6 @@ function Digit(props: { value: string; speed: number; parent: HTMLElement }) {
                 </div>
             </Show>
         </>
-    );
-}
-
-function DebugUI() {
-    const { amount, setEarned, setInput } = useStore();
-
-    return (
-        <section class="debug">
-            <label>set total value:<input type="number" onChange={e => setInput(parseInt(e.target.value))}></input></label>
-            <label>add or remove value:<input type="text" onChange={e => setEarned(e.target.value)}></input></label>
-            <button onClick={() => setEarned(`-${Math.floor(0.1 * amount())}`)}>death</button>
-        </section>
     );
 }
 
