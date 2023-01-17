@@ -59,189 +59,191 @@
   grid-auto-rows: 1em;
 }
 
-.digits {
+.number {
   width: 100%;
+  height: 1rem;
   overflow: hidden;
 }
 
-.digits>div {
-  display: inline-block;
+.digits {
+  display: grid;
+  grid-template-rows: repeat(10, 1rem);
   animation-fill-mode: both;
 }
 
-.digits .delay {
+.digits.delay {
   animation-delay: 0.5s;
 }
 
-.digits .speed-1 {
+.digits.speed-1 {
   animation-duration: 0.4s;
 }
 
-.digits .speed-2 {
+.digits.speed-2 {
   animation-duration: 0.4s;
 }
 
-.digits .speed-3 {
+.digits.speed-3 {
   animation-duration: 0.45s;
 }
 
-.digits .speed-4 {
+.digits.speed-4 {
   animation-duration: 0.45s;
 }
 
-.digits .speed-5,
-.digits .speed-6,
-.digits .speed-7,
-.digits .speed-8 {
+.digits.speed-5,
+.digits.speed-6,
+.digits.speed-7,
+.digits.speed-8 {
   animation-duration: 0.5s;
 }
 
-.digits .num-0 {
+.digits.num-0 {
   animation-name: zero;
   animation-timing-function: steps(10, start);
 }
 
-.digits .num-1 {
+.digits.num-1 {
   animation-name: one;
   animation-timing-function: steps(1, start);
 }
 
-.digits .num-2 {
+.digits.num-2 {
   animation-name: two;
   animation-timing-function: steps(2, start);
 }
 
-.digits .num-3 {
+.digits.num-3 {
   animation-name: three;
   animation-timing-function: steps(3, start);
 }
 
-.digits .num-4 {
+.digits.num-4 {
   animation-name: four;
   animation-timing-function: steps(4, start);
 }
 
-.digits .num-5 {
+.digits.num-5 {
   animation-name: five;
   animation-timing-function: steps(5, start);
 }
 
-.digits .num-6 {
+.digits.num-6 {
   animation-name: six;
   animation-timing-function: steps(6, start);
 }
 
-.digits .num-7 {
+.digits.num-7 {
   animation-name: seven;
   animation-timing-function: steps(7, start);
 }
 
-.digits .num-8 {
+.digits.num-8 {
   animation-name: eight;
   animation-timing-function: steps(8, start);
 }
 
-.digits .num-9 {
+.digits.num-9 {
   animation-name: nine;
   animation-timing-function: steps(9, start);
 }
 
 @keyframes zero {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-6.5em);
+    transform: translateY(-10rem);
   }
 }
 
 @keyframes one {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-0.65em);
+    transform: translateY(-1rem);
   }
 }
 
 @keyframes two {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-1.3em);
+    transform: translateY(-2rem);
   }
 }
 
 @keyframes three {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-1.95em);
+    transform: translateY(-3rem);
   }
 }
 
 @keyframes four {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-2.6em);
+    transform: translateY(-4rem);
   }
 }
 
 @keyframes five {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-3.25em);
+    transform: translateY(-5rem);
   }
 }
 
 @keyframes six {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-3.9em);
+    transform: translateY(-6rem);
   }
 }
 
 @keyframes seven {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-4.55em);
+    transform: translateY(-7rem);
   }
 }
 
 @keyframes eight {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-5.2em);
+    transform: translateY(-8rem);
   }
 }
 
 @keyframes nine {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   to {
-    transform: translateX(-5.85em);
+    transform: translateY(-9rem);
   }
 }

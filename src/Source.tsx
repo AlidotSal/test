@@ -10,9 +10,19 @@ function Digit(props: { value: string; speed: number; parent: HTMLElement }) {
     return (
         <>
             <Show when={props.value !== '-' && props.value !== '+'} fallback={<span>{props.value}</span>}>
-                <div class="digits">
-                    <div class={`num-${props.value} speed-${props.speed} ${opacity === "0" ? "delay" : ""}`}>
-                        01234567890
+                <div class="number">
+                    <div class={`digits num-${props.value} speed-${props.speed} ${opacity === "0" ? "delay" : ""}`}>
+                        <div>0</div>
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>0</div>
                     </div>
                 </div>
             </Show>
