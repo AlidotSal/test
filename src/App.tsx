@@ -7,9 +7,6 @@ const App: Component = () => {
     return (
         <StoreProvider>
             <div class="box"><Source /></div>
-            <section class="bar">
-                <div />
-            </section>
         </StoreProvider>
     );
 };

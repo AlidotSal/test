@@ -1,6 +1,32 @@
 .debug {
   position: relative;
   top: 2rem;
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: #f1f1f1;
+}
+
+.debug input {
+  width: 8rem;
+  margin-left: 1rem;
+  padding: 0.25em 0.5em;
+}
+
+.debug button {
+  width: 6rem;
+  height: 2.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #b51c1c;
+  border: none;
+  border-radius: 5px;
+  transition: all .2s;
+}
+
+.debug button:hover {
+  cursor: pointer;
+  background-color: #c5c5c5;
 }
 
 .source {
@@ -9,7 +35,7 @@
   width: fit-content;
   height: 2rem;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 1.6px;
   color: #fff;
   opacity: 0;
@@ -126,7 +152,7 @@
   }
 
   to {
-    transform: translateX(-6em);
+    transform: translateX(-6.5em);
   }
 }
 
@@ -136,7 +162,7 @@
   }
 
   to {
-    transform: translateX(-0.6em);
+    transform: translateX(-0.65em);
   }
 }
 
@@ -146,7 +172,7 @@
   }
 
   to {
-    transform: translateX(-1.2em);
+    transform: translateX(-1.3em);
   }
 }
 
@@ -156,7 +182,7 @@
   }
 
   to {
-    transform: translateX(-1.8em);
+    transform: translateX(-1.95em);
   }
 }
 
@@ -166,7 +192,7 @@
   }
 
   to {
-    transform: translateX(-2.4em);
+    transform: translateX(-2.6em);
   }
 }
 
@@ -176,7 +202,7 @@
   }
 
   to {
-    transform: translateX(-3em);
+    transform: translateX(-3.25em);
   }
 }
 
@@ -186,7 +212,7 @@
   }
 
   to {
-    transform: translateX(-3.6em);
+    transform: translateX(-3.9em);
   }
 }
 
@@ -196,7 +222,7 @@
   }
 
   to {
-    transform: translateX(-4.2em);
+    transform: translateX(-4.55em);
   }
 }
 
@@ -206,7 +232,7 @@
   }
 
   to {
-    transform: translateX(-4.8em);
+    transform: translateX(-5.2em);
   }
 }
 
@@ -216,6 +242,6 @@
   }
 
   to {
-    transform: translateX(-5.4em);
+    transform: translateX(-5.85em);
   }
 }

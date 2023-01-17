@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Roboto-Black';
   font-display: swap;
   src: url('./assets/Roboto-Black.ttf') format('ttf');
@@ -8,7 +8,7 @@
   font-family: 'Roboto-Bold';
   font-display: swap;
   src: url('./assets/Roboto-Bold.ttf') format('ttf');
-}
+} */
 
 *,
 ::before,
@@ -23,9 +23,10 @@ html {
 }
 
 body {
+  display: grid;
   height: 100%;
   margin: 0;
-  font-family: 'Roboto-Bold';
+  font-family: sans-serif;
 }
 
 p {
@@ -77,17 +78,10 @@ input {
   transform: scaleX(0.75);
 }
 
-button {
-  width: 4rem;
-  height: 2rem;
-}
-
 .box {
-  position: relative;
-  top: 270px;
-  left: 200px;
-  width: 380px;
-  height: 160px;
-  padding: 0.8rem 0.4rem;
-  background-color: rgb(43, 27, 58);
+  width: 450px;
+  height: 260px;
+  margin: auto;
+  padding: 3rem;
+  background-color: rgb(27, 36, 44);
 }
