@@ -5,14 +5,14 @@ import DebugUI from "./DebugUI";
 import iconChart from '../assets/images/chart_bar.svg';
 import "./source.css";
 
-function Digit(props: { value: string; speed: number; parent: HTMLElement }) {
+function Digit(props: { value: string; iteration: number; parent: HTMLElement }) {
     const opacity = getComputedStyle(props.parent).getPropertyValue("opacity");
 
     return (
         <>
             <Show when={props.value !== '-' && props.value !== '+'} fallback={<span>{props.value}</span>}>
                 <div class="number">
-                    <div class={`digits num-${props.value} speed-${props.speed} ${opacity === "0" ? "delay" : ""}`}>
+                    <div class={`digits num-${props.value} iteration-${props.iteration} ${opacity === "0" ? "delay" : ""}`}>
                         <div>0</div>
                         <div>1</div>
                         <div>2</div>
@@ -82,7 +82,7 @@ export default function Source() {
         <>
             <section ref={sourceEl} class="source">
                 <div ref={earnedEl} class="earned">
-                    {numbers().map((n, i) => <Digit value={n} speed={i} parent={sourceEl} />)}
+                    {numbers().map((n, i) => <Digit value={n} iteration={i - 1} parent={sourceEl} />)}
                 </div>
                 <p class="total"><img src={iconChart} />{amount()}</p>
             </section>

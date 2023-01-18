@@ -43,7 +43,7 @@
 }
 
 .total {
-  text-align: end;
+  min-width: 3rem;
 }
 
 .total>img {
@@ -68,181 +68,380 @@
   display: grid;
   grid-template-rows: repeat(10, var(--source-font-size));
   animation-fill-mode: both;
+  animation-timing-function: steps(10, end);
 }
 
 .digits.delay {
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
 }
 
-.digits.speed-1 {
-  animation-duration: 0.4s;
+.digits.iteration-0.num-0 {
+  animation-name: counter;
+  animation-duration: 0;
+  animation-iteration-count: 0;
 }
 
-.digits.speed-2 {
-  animation-duration: 0.4s;
+.digits.iteration-0.num-1 {
+  animation-name: counter;
+  animation-duration: 5s;
+  animation-iteration-count: 0.1;
 }
 
-.digits.speed-3 {
-  animation-duration: 0.45s;
+.digits.iteration-0.num-2 {
+  animation-name: counter;
+  animation-duration: 2.5s;
+  animation-iteration-count: 0.2;
 }
 
-.digits.speed-4 {
-  animation-duration: 0.45s;
+.digits.iteration-0.num-3 {
+  animation-name: counter;
+  animation-duration: 1.66667s;
+  animation-iteration-count: 0.3;
 }
 
-.digits.speed-5,
-.digits.speed-6,
-.digits.speed-7,
-.digits.speed-8 {
+.digits.iteration-0.num-4 {
+  animation-name: counter;
+  animation-duration: 1.25s;
+  animation-iteration-count: 0.4;
+}
+
+.digits.iteration-0.num-5 {
+  animation-name: counter;
+  animation-duration: 1s;
+  animation-iteration-count: 0.5;
+}
+
+.digits.iteration-0.num-6 {
+  animation-name: counter;
+  animation-duration: 0.83333s;
+  animation-iteration-count: 0.6;
+}
+
+.digits.iteration-0.num-7 {
+  animation-name: counter;
+  animation-duration: 0.71429s;
+  animation-iteration-count: 0.7;
+}
+
+.digits.iteration-0.num-8 {
+  animation-name: counter;
+  animation-duration: 0.625s;
+  animation-iteration-count: 0.8;
+}
+
+.digits.iteration-0.num-9 {
+  animation-name: counter;
+  animation-duration: 0.55556s;
+  animation-iteration-count: 0.9;
+}
+
+.digits.iteration-1.num-0 {
+  animation-name: counter;
   animation-duration: 0.5s;
+  animation-iteration-count: 1;
 }
 
-.digits.num-0 {
-  animation-name: zero;
-  animation-timing-function: steps(10, start);
+.digits.iteration-1.num-1 {
+  animation-name: counter;
+  animation-duration: 0.45455s;
+  animation-iteration-count: 1.1;
 }
 
-.digits.num-1 {
-  animation-name: one;
-  animation-timing-function: steps(1, start);
+.digits.iteration-1.num-2 {
+  animation-name: counter;
+  animation-duration: 0.41667s;
+  animation-iteration-count: 1.2;
 }
 
-.digits.num-2 {
-  animation-name: two;
-  animation-timing-function: steps(2, start);
+.digits.iteration-1.num-3 {
+  animation-name: counter;
+  animation-duration: 0.38462s;
+  animation-iteration-count: 1.3;
 }
 
-.digits.num-3 {
-  animation-name: three;
-  animation-timing-function: steps(3, start);
+.digits.iteration-1.num-4 {
+  animation-name: counter;
+  animation-duration: 0.35714s;
+  animation-iteration-count: 1.4;
 }
 
-.digits.num-4 {
-  animation-name: four;
-  animation-timing-function: steps(4, start);
+.digits.iteration-1.num-5 {
+  animation-name: counter;
+  animation-duration: 0.33333s;
+  animation-iteration-count: 1.5;
 }
 
-.digits.num-5 {
-  animation-name: five;
-  animation-timing-function: steps(5, start);
+.digits.iteration-1.num-6 {
+  animation-name: counter;
+  animation-duration: 0.3125s;
+  animation-iteration-count: 1.6;
 }
 
-.digits.num-6 {
-  animation-name: six;
-  animation-timing-function: steps(6, start);
+.digits.iteration-1.num-7 {
+  animation-name: counter;
+  animation-duration: 0.29412s;
+  animation-iteration-count: 1.7;
 }
 
-.digits.num-7 {
-  animation-name: seven;
-  animation-timing-function: steps(7, start);
+.digits.iteration-1.num-8 {
+  animation-name: counter;
+  animation-duration: 0.27778s;
+  animation-iteration-count: 1.8;
 }
 
-.digits.num-8 {
-  animation-name: eight;
-  animation-timing-function: steps(8, start);
+.digits.iteration-1.num-9 {
+  animation-name: counter;
+  animation-duration: 0.26316s;
+  animation-iteration-count: 1.9;
 }
 
-.digits.num-9 {
-  animation-name: nine;
-  animation-timing-function: steps(9, start);
+.digits.iteration-2.num-0 {
+  animation-name: counter;
+  animation-duration: 0.25s;
+  animation-iteration-count: 2;
 }
 
-@keyframes zero {
+.digits.iteration-2.num-1 {
+  animation-name: counter;
+  animation-duration: 0.2381s;
+  animation-iteration-count: 2.1;
+}
+
+.digits.iteration-2.num-2 {
+  animation-name: counter;
+  animation-duration: 0.22727s;
+  animation-iteration-count: 2.2;
+}
+
+.digits.iteration-2.num-3 {
+  animation-name: counter;
+  animation-duration: 0.21739s;
+  animation-iteration-count: 2.3;
+}
+
+.digits.iteration-2.num-4 {
+  animation-name: counter;
+  animation-duration: 0.20833s;
+  animation-iteration-count: 2.4;
+}
+
+.digits.iteration-2.num-5 {
+  animation-name: counter;
+  animation-duration: 0.2s;
+  animation-iteration-count: 2.5;
+}
+
+.digits.iteration-2.num-6 {
+  animation-name: counter;
+  animation-duration: 0.19231s;
+  animation-iteration-count: 2.6;
+}
+
+.digits.iteration-2.num-7 {
+  animation-name: counter;
+  animation-duration: 0.18519s;
+  animation-iteration-count: 2.7;
+}
+
+.digits.iteration-2.num-8 {
+  animation-name: counter;
+  animation-duration: 0.17857s;
+  animation-iteration-count: 2.8;
+}
+
+.digits.iteration-2.num-9 {
+  animation-name: counter;
+  animation-duration: 0.17241s;
+  animation-iteration-count: 2.9;
+}
+
+.digits.iteration-3.num-0 {
+  animation-name: counter;
+  animation-duration: 0.16667s;
+  animation-iteration-count: 3;
+}
+
+.digits.iteration-3.num-1 {
+  animation-name: counter;
+  animation-duration: 0.16129s;
+  animation-iteration-count: 3.1;
+}
+
+.digits.iteration-3.num-2 {
+  animation-name: counter;
+  animation-duration: 0.15625s;
+  animation-iteration-count: 3.2;
+}
+
+.digits.iteration-3.num-3 {
+  animation-name: counter;
+  animation-duration: 0.15152s;
+  animation-iteration-count: 3.3;
+}
+
+.digits.iteration-3.num-4 {
+  animation-name: counter;
+  animation-duration: 0.14706s;
+  animation-iteration-count: 3.4;
+}
+
+.digits.iteration-3.num-5 {
+  animation-name: counter;
+  animation-duration: 0.14286s;
+  animation-iteration-count: 3.5;
+}
+
+.digits.iteration-3.num-6 {
+  animation-name: counter;
+  animation-duration: 0.13889s;
+  animation-iteration-count: 3.6;
+}
+
+.digits.iteration-3.num-7 {
+  animation-name: counter;
+  animation-duration: 0.13514s;
+  animation-iteration-count: 3.7;
+}
+
+.digits.iteration-3.num-8 {
+  animation-name: counter;
+  animation-duration: 0.13158s;
+  animation-iteration-count: 3.8;
+}
+
+.digits.iteration-3.num-9 {
+  animation-name: counter;
+  animation-duration: 0.12821s;
+  animation-iteration-count: 3.9;
+}
+
+.digits.iteration-4.num-0 {
+  animation-name: counter;
+  animation-duration: 0.125s;
+  animation-iteration-count: 4;
+}
+
+.digits.iteration-4.num-1 {
+  animation-name: counter;
+  animation-duration: 0.12195s;
+  animation-iteration-count: 4.1;
+}
+
+.digits.iteration-4.num-2 {
+  animation-name: counter;
+  animation-duration: 0.11905s;
+  animation-iteration-count: 4.2;
+}
+
+.digits.iteration-4.num-3 {
+  animation-name: counter;
+  animation-duration: 0.11628s;
+  animation-iteration-count: 4.3;
+}
+
+.digits.iteration-4.num-4 {
+  animation-name: counter;
+  animation-duration: 0.11364s;
+  animation-iteration-count: 4.4;
+}
+
+.digits.iteration-4.num-5 {
+  animation-name: counter;
+  animation-duration: 0.11111s;
+  animation-iteration-count: 4.5;
+}
+
+.digits.iteration-4.num-6 {
+  animation-name: counter;
+  animation-duration: 0.1087s;
+  animation-iteration-count: 4.6;
+}
+
+.digits.iteration-4.num-7 {
+  animation-name: counter;
+  animation-duration: 0.10638s;
+  animation-iteration-count: 4.7;
+}
+
+.digits.iteration-4.num-8 {
+  animation-name: counter;
+  animation-duration: 0.10417s;
+  animation-iteration-count: 4.8;
+}
+
+.digits.iteration-4.num-9 {
+  animation-name: counter;
+  animation-duration: 0.10204s;
+  animation-iteration-count: 4.9;
+}
+
+.digits.iteration-5.num-0 {
+  animation-name: counter;
+  animation-duration: 0.1s;
+  animation-iteration-count: 5;
+}
+
+.digits.iteration-5.num-1 {
+  animation-name: counter;
+  animation-duration: 0.09804s;
+  animation-iteration-count: 5.1;
+}
+
+.digits.iteration-5.num-2 {
+  animation-name: counter;
+  animation-duration: 0.09615s;
+  animation-iteration-count: 5.2;
+}
+
+.digits.iteration-5.num-3 {
+  animation-name: counter;
+  animation-duration: 0.09434s;
+  animation-iteration-count: 5.3;
+}
+
+.digits.iteration-5.num-4 {
+  animation-name: counter;
+  animation-duration: 0.09259s;
+  animation-iteration-count: 5.4;
+}
+
+.digits.iteration-5.num-5 {
+  animation-name: counter;
+  animation-duration: 0.09091s;
+  animation-iteration-count: 5.5;
+}
+
+.digits.iteration-5.num-6 {
+  animation-name: counter;
+  animation-duration: 0.08929s;
+  animation-iteration-count: 5.6;
+}
+
+.digits.iteration-5.num-7 {
+  animation-name: counter;
+  animation-duration: 0.08772s;
+  animation-iteration-count: 5.7;
+}
+
+.digits.iteration-5.num-8 {
+  animation-name: counter;
+  animation-duration: 0.08621s;
+  animation-iteration-count: 5.8;
+}
+
+.digits.iteration-5.num-9 {
+  animation-name: counter;
+  animation-duration: 0.08475s;
+  animation-iteration-count: 5.9;
+}
+
+
+@keyframes counter {
   from {
     transform: translateY(0);
   }
 
   to {
     transform: translateY(calc(-10*var(--source-font-size)));
-  }
-}
-
-@keyframes one {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-1*var(--source-font-size)));
-  }
-}
-
-@keyframes two {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-2*var(--source-font-size)));
-  }
-}
-
-@keyframes three {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-3*var(--source-font-size)));
-  }
-}
-
-@keyframes four {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-4*var(--source-font-size)));
-  }
-}
-
-@keyframes five {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-5*var(--source-font-size)));
-  }
-}
-
-@keyframes six {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-6*var(--source-font-size)));
-  }
-}
-
-@keyframes seven {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-7*var(--source-font-size)));
-  }
-}
-
-@keyframes eight {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-8*var(--source-font-size)));
-  }
-}
-
-@keyframes nine {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-9*var(--source-font-size)));
   }
 }
