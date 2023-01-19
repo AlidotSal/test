@@ -33,6 +33,7 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 
 export default function Source() {
     const { amount, addAmount, setAmount, earned, input } = useStore();
+    let isMounted = false;
     const numbers = () => {
         const nums: string[] = [];
         for (let i = 0; i < earned().length; i++) {
@@ -57,25 +58,29 @@ export default function Source() {
 
     createEffect(() => {
         const earnedValue = earned();
-        const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
-        animateTo(
-            sourceEl,
-            { opacity: [opacity === "0" ? 0 : 1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
-            { duration: SOURCE_VISIBLE_TIME },
-        );
-        animateTo(
-            earnedEl,
-            {
-                opacity: [0, 1, 1, 0],
-                transform: ["translateY(-100%)", "translateY(0)", "translateY(0)", "translateY(100%)"],
-                offset: [0, 0.25, 0.8, 1],
-            },
-            { duration: EARNED_VISIBLE_TIME, delay: opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 : 0 },
-        );
-        setTimeout(
-            () => addAmount(parseInt(earnedValue)),
-            opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.8 * EARNED_VISIBLE_TIME,
-        );
+        if (isMounted) {
+            const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
+            animateTo(
+                sourceEl,
+                { opacity: [opacity === "0" ? 0 : 1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
+                { duration: SOURCE_VISIBLE_TIME },
+            );
+            animateTo(
+                earnedEl,
+                {
+                    opacity: [0, 1, 1, 0],
+                    transform: ["translateY(-100%)", "translateY(0)", "translateY(0)", "translateY(100%)"],
+                    offset: [0, 0.25, 0.8, 1],
+                },
+                { duration: EARNED_VISIBLE_TIME, delay: opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 : 0 },
+            );
+            setTimeout(
+                () => addAmount(parseInt(earnedValue)),
+                opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.8 * EARNED_VISIBLE_TIME,
+            );
+        } else {
+            isMounted = true;
+        }
     });
 
     return (

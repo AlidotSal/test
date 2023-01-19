@@ -4,7 +4,7 @@ import { animationIntervalX } from "./animation";
 
 export function createAnimated(initialValue: number): [Accessor<number>, (added: number) => void, Setter<number>] {
     const [value, setValue] = createSignal(initialValue);
-    const steps = 10;
+    const steps = 24;
     const delay = Math.floor(500 / steps);
     const addValue = (added: number) => {
         animationIntervalX(

@@ -6,7 +6,7 @@ const StoreContext = createContext();
 
 export const StoreProvider = (props: { children: JSXElement }) => {
     const [amount, addAmount, setAmount] = createAnimated(0);
-    const [earned, setEarned] = createSignal("+100", { equals: false });
+    const [earned, setEarned] = createSignal("", { equals: false });
     const [input, setInput] = createSignal(0);
 
     const storeValue = {
