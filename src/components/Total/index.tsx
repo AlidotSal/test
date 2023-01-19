@@ -1,5 +1,3 @@
-import { createEffect, Show } from "solid-js";
-import { animateTo } from "../../utils/animation";
 import { useStore } from "../../store";
 import iconChart from '../../assets/images/chart_bar.svg';
 import "./style.css";
