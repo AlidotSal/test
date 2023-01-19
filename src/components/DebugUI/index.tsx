@@ -1,4 +1,5 @@
-import { useStore } from "../store";
+// @ts-nocheck
+import { useStore } from "../../store";
 
 export default function DebugUI() {
     const { amount, setEarned, setInput } = useStore();

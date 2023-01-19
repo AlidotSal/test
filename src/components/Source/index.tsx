@@ -1,9 +1,9 @@
 import { createEffect, Show } from "solid-js";
-import { animateTo } from "../utils/animation";
-import { useStore } from "../store";
-import DebugUI from "./DebugUI";
-import iconChart from '../assets/images/chart_bar.svg';
-import "./source.css";
+import { animateTo } from "../../utils/animation";
+import { useStore } from "../../store";
+import DebugUI from "../DebugUI";
+import iconChart from '../../assets/images/chart_bar.svg';
+import "./style.css";
 
 function Digit(props: { value: string; iteration: number; parent: HTMLElement }) {
     const opacity = getComputedStyle(props.parent).getPropertyValue("opacity");
