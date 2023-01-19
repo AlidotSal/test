@@ -7,7 +7,6 @@ const StoreContext = createContext();
 export const StoreProvider = (props: { children: JSXElement }) => {
     const [amount, addAmount, setAmount] = createAnimated(0);
     const [earned, setEarned] = createSignal("", { equals: false });
-    const [input, setInput] = createSignal(0);
 
     const storeValue = {
         amount,
@@ -15,8 +14,6 @@ export const StoreProvider = (props: { children: JSXElement }) => {
         setAmount,
         earned,
         setEarned,
-        input,
-        setInput,
     };
 
     return <StoreContext.Provider value={storeValue}>{props.children}</StoreContext.Provider>;
@@ -28,8 +25,6 @@ interface UseStore {
     setAmount: Setter<number>;
     earned: Accessor<string>;
     setEarned: Setter<string>;
-    input: Accessor<number>;
-    setInput: Setter<number>
 }
 
 export const useStore = () => useContext(StoreContext) as UseStore;

@@ -1,8 +1,8 @@
 import { createEffect, Show } from "solid-js";
 import { animateTo } from "../../utils/animation";
 import { useStore } from "../../store";
+import Total from "../Total";
 import DebugUI from "../DebugUI";
-import iconChart from '../../assets/images/chart_bar.svg';
 import "./style.css";
 
 function Digit(props: { value: string; iteration: number; parent: HTMLElement }) {
@@ -32,7 +32,7 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 }
 
 export default function Source() {
-    const { amount, addAmount, setAmount, earned, input } = useStore();
+    const { amount, addAmount, earned } = useStore();
     let isMounted = false;
     const numbers = () => {
         const nums: string[] = [];
@@ -47,8 +47,8 @@ export default function Source() {
     const EARNED_VISIBLE_TIME = 2000;
 
     createEffect(() => {
+        amount();
         const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
-        setAmount(input());
         animateTo(
             sourceEl,
             { opacity: [opacity === "0" ? 0 : 1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
@@ -89,7 +89,7 @@ export default function Source() {
                 <div ref={earnedEl} class="earned">
                     {numbers().map((n, i) => <Digit value={n} iteration={i - 1} parent={sourceEl} />)}
                 </div>
-                <p class="total"><img src={iconChart} />{amount()}</p>
+                <Total />
             </section>
             <DebugUI />
         </>

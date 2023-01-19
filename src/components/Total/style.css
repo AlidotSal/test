@@ -1,0 +1,9 @@
+.total {
+    min-width: 3rem;
+}
+
+.total>img {
+    width: auto;
+    height: 100%;
+    margin-right: 4px;
+}
