@@ -32,15 +32,9 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 }
 
 export default function Source() {
-    const { amount, addAmount, earned } = useStore();
+    const { amount, earned, setAmount } = useStore();
     let isMounted = false;
-    const numbers = () => {
-        const nums: string[] = [];
-        for (let i = 0; i < earned().length; i++) {
-            nums.push(earned()[i]);
-        }
-        return nums;
-    };
+    const numbers = () => earned().toString().split("")
     let sourceEl!: HTMLDivElement;
     let earnedEl!: HTMLDivElement;
     const SOURCE_VISIBLE_TIME = 4000;
@@ -74,10 +68,7 @@ export default function Source() {
                 },
                 { duration: EARNED_VISIBLE_TIME, delay: opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 : 0 },
             );
-            setTimeout(
-                () => addAmount(parseInt(earnedValue)),
-                opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 + 0.75 * EARNED_VISIBLE_TIME : 0.8 * EARNED_VISIBLE_TIME,
-            );
+            setAmount(p => p + parseInt(earnedValue));
         } else {
             isMounted = true;
         }
@@ -89,7 +80,7 @@ export default function Source() {
                 <div ref={earnedEl} class="earned">
                     {numbers().map((n, i) => <Digit value={n} iteration={i - 1} parent={sourceEl} />)}
                 </div>
-                <Total />
+                <Total animate={true} />
             </section>
             <DebugUI />
         </>
