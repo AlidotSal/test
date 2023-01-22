@@ -1,7 +1,7 @@
 .total {
     display: flex;
+    justify-content: space-between;
     gap: 0.25rem;
-    min-width: 3rem;
 }
 
 .total>img {
@@ -17,4 +17,7 @@
 
 .total .digits {
     animation-name: counter;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
 }

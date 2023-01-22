@@ -3,10 +3,11 @@ import { StoreProvider } from "./store";
 import Source from "./components/Source";
 
 const App: Component = () => {
-
     return (
         <StoreProvider>
-            <div class="box"><Source /></div>
+            <div class="box">
+                <Source />
+            </div>
         </StoreProvider>
     );
 };

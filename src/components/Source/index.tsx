@@ -10,9 +10,13 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 
     return (
         <>
-            <Show when={props.value !== '-' && props.value !== '+'} fallback={<span>{props.value}</span>}>
+            <Show when={props.value !== "-" && props.value !== "+"} fallback={<span>{props.value}</span>}>
                 <div class="number">
-                    <div class={`digits num-${props.value} iteration-${props.iteration} ${opacity === "0" ? "delay" : ""}`}>
+                    <div
+                        class={`digits num-${props.value} iteration-${props.iteration} ${
+                            opacity === "0" ? "delay" : ""
+                        }`}
+                    >
                         <div>0</div>
                         <div>1</div>
                         <div>2</div>
@@ -32,9 +36,13 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 }
 
 export default function Source() {
-    const { amount, earned, setAmount } = useStore();
+    const { amount, earned } = useStore();
     let isMounted = false;
-    const numbers = () => earned().toString().split("")
+    const numbers = () => {
+        const list = earned().toString().split("");
+        if (earned() > 0) list.unshift("+");
+        return list;
+    };
     let sourceEl!: HTMLDivElement;
     let earnedEl!: HTMLDivElement;
     const SOURCE_VISIBLE_TIME = 4000;
@@ -48,10 +56,10 @@ export default function Source() {
             { opacity: [opacity === "0" ? 0 : 1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
             { duration: SOURCE_VISIBLE_TIME },
         );
-    })
+    });
 
     createEffect(() => {
-        const earnedValue = earned();
+        earned();
         if (isMounted) {
             const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
             animateTo(
@@ -68,7 +76,6 @@ export default function Source() {
                 },
                 { duration: EARNED_VISIBLE_TIME, delay: opacity === "0" ? SOURCE_VISIBLE_TIME * 0.05 : 0 },
             );
-            setAmount(p => p + parseInt(earnedValue));
         } else {
             isMounted = true;
         }
@@ -78,9 +85,11 @@ export default function Source() {
         <>
             <section ref={sourceEl} class="source">
                 <div ref={earnedEl} class="earned">
-                    {numbers().map((n, i) => <Digit value={n} iteration={i - 1} parent={sourceEl} />)}
+                    {numbers().map((n, i) => (
+                        <Digit value={n} iteration={i - 1} parent={sourceEl} />
+                    ))}
                 </div>
-                <Total animate={true} />
+                <Total delay={0.8 * EARNED_VISIBLE_TIME + 0.025 * SOURCE_VISIBLE_TIME} />
             </section>
             <DebugUI />
         </>
