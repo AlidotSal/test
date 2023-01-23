@@ -16,18 +16,23 @@ export default function Total(props: { delay?: number }) {
         children.forEach((el, i) => {
             const digitsEl = el.firstChild as HTMLDivElement;
             const counterAnim = digitsEl.getAnimations()[0];
-            if(numbers()[i] !== prev[i]) changedNumber = Math.min(changedNumber,i)
+            if (numbers()[i] !== prev[i]) changedNumber = Math.min(changedNumber, i);
             const difference = Number(numbers()[i]) - Number(prev[i]);
-            const cycles = i-changedNumber< 0 ? 0 : (i-changedNumber)*(Number(numbers()[changedNumber])-Number(prev[changedNumber]));
-            const rate = cycles+difference * 0.1 + 0.01;
+            //check if number should have cycles
+            const cycles =
+                i - changedNumber <= 0
+                    ? 0
+                    : (i - changedNumber) * (Number(numbers()[changedNumber]) - Number(prev[changedNumber]));
+            //add 0.01 to step into the next number
+            const rate = cycles + difference * 0.1 + 0.01;
             counterAnim.updatePlaybackRate(rate);
-            counterAnim.currentTime = 50 * Number(prev[i]) + 1;
+            counterAnim.currentTime = 50 * (Number(prev[i]) === 0 ? 10 : Number(prev[i])) + 1;
             setTimeout(() => {
                 counterAnim.play();
             }, props.delay ?? 0);
             setTimeout(() => {
                 counterAnim.pause();
-                counterAnim.currentTime = 50 * Number(numbers()[i]) + 1;
+                counterAnim.currentTime = 50 * (Number(numbers()[i]) === 0 ? 10 : Number(numbers()[i])) + 1;
             }, (props.delay ?? 0) + 500);
         });
         prev = numbers();
