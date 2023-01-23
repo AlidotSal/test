@@ -50,12 +50,14 @@ export default function Source() {
 
     createEffect(() => {
         amount();
+        if (isMounted) {
         const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
         animateTo(
             sourceEl,
             { opacity: [opacity === "0" ? 0 : 1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
             { duration: SOURCE_VISIBLE_TIME },
         );
+        }
     });
 
     createEffect(() => {

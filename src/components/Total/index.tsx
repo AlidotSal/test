@@ -8,16 +8,18 @@ export default function Total(props: { delay?: number }) {
     const numbers = () => amount().toString().padStart(10, "0");
     let containerRef!: HTMLDivElement;
     let prev = "0000000000";
-    let startingDigit = 10;
+    let startingDigit = 9;
 
     createEffect(() => {
         const children = [...containerRef.childNodes] as HTMLDivElement[];
+        let changedNumber = 9;
         children.forEach((el, i) => {
             const digitsEl = el.firstChild as HTMLDivElement;
             const counterAnim = digitsEl.getAnimations()[0];
+            if(numbers()[i] !== prev[i]) changedNumber = Math.min(changedNumber,i)
             const difference = Number(numbers()[i]) - Number(prev[i]);
-            const prevDiff = Math.abs(Number(numbers()[i - 1] || "0") - Number(prev[i - 1] || "0"));
-            const rate = difference * 0.1 + prevDiff + 0.01;
+            const cycles = i-changedNumber< 0 ? 0 : (i-changedNumber)*(Number(numbers()[changedNumber])-Number(prev[changedNumber]));
+            const rate = cycles+difference * 0.1 + 0.01;
             counterAnim.updatePlaybackRate(rate);
             counterAnim.currentTime = 50 * Number(prev[i]) + 1;
             setTimeout(() => {
