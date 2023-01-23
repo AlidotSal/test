@@ -21,3 +21,7 @@
     animation-iteration-count: infinite;
     animation-play-state: paused;
 }
+
+.total .hide {
+    width: 0;
+}

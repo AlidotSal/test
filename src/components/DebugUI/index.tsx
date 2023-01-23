@@ -12,9 +12,10 @@ export default function DebugUI() {
                 <input
                     type="number"
                     min={0}
+                    max={1000000000}
                     oninput="validity.valid||(value='');"
                     onChange={(e) => setAmount(parseInt(e.target.value))}
-                ></input>
+                />
             </label>
             <label>
                 add or remove value(with +/-):
@@ -24,7 +25,7 @@ export default function DebugUI() {
                     onChange={(e) =>
                         setAmount((p) => (p + parseInt(e.target.value) >= 0 ? p + parseInt(e.target.value) : 0))
                     }
-                ></input>
+                />
             </label>
             <button onClick={() => setAmount((p) => p - Math.floor(0.1 * amount()))}>death</button>
         </section>

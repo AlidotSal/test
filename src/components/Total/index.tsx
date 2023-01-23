@@ -6,8 +6,9 @@ import "./style.css";
 export default function Total(props: { delay?: number }) {
     const { amount } = useStore();
     const numbers = () => amount().toString().padStart(10, "0");
-    let prev = "0000000000";
     let containerRef!: HTMLDivElement;
+    let prev = "0000000000";
+    let startingDigit = 10;
 
     createEffect(() => {
         const children = [...containerRef.childNodes] as HTMLDivElement[];
@@ -36,23 +37,26 @@ export default function Total(props: { delay?: number }) {
             <div ref={containerRef} class="animated">
                 {numbers()
                     .split("")
-                    .map(() => (
-                        <div class="number">
-                            <div class="digits">
-                                <div>0</div>
-                                <div>1</div>
-                                <div>2</div>
-                                <div>3</div>
-                                <div>4</div>
-                                <div>5</div>
-                                <div>6</div>
-                                <div>7</div>
-                                <div>8</div>
-                                <div>9</div>
-                                <div>0</div>
+                    .map((num, i) => {
+                        if (num !== "0" && startingDigit > i) startingDigit = i;
+                        return (
+                            <div class="number" classList={{ hide: i < startingDigit }}>
+                                <div class="digits">
+                                    <div>0</div>
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                    <div>6</div>
+                                    <div>7</div>
+                                    <div>8</div>
+                                    <div>9</div>
+                                    <div>0</div>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
             </div>
         </div>
     );
