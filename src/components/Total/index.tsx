@@ -36,18 +36,24 @@ export default function Total(props: { delay?: number }) {
             }, (props.delay ?? 0) + 500);
         });
         prev = numbers();
+        startingDigit = 9;
     });
 
     return (
         <div class="total">
-            <img src={iconChart} />
+            <img src={iconChart} alt="" />
             <div ref={containerRef} class="animated">
                 {numbers()
                     .split("")
                     .map((num, i) => {
                         if (num !== "0" && startingDigit > i) startingDigit = i;
                         return (
-                            <div class="number" classList={{ hide: i < startingDigit }}>
+                            <div
+                                class="number"
+                                classList={{
+                                    hide: i < startingDigit,
+                                }}
+                            >
                                 <div class="digits">
                                     <div>0</div>
                                     <div>1</div>
