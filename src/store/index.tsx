@@ -1,19 +1,23 @@
-import { createSignal, createContext, useContext } from "solid-js";
-import { createAnimated } from "../utils/hooks";
+import { createSignal, createContext, useContext, createEffect } from "solid-js";
 import type { Accessor, Setter, JSXElement } from "solid-js";
 
 const StoreContext = createContext();
 
 export const StoreProvider = (props: { children: JSXElement }) => {
-    const [amount, addAmount, setAmount] = createAnimated(0);
-    const [earned, setEarned] = createSignal("", { equals: false });
+    const [amount, setAmount] = createSignal(0);
+    const [earned, setEarned] = createSignal(0, { equals: false });
+    let prevAmount = 0;
+
+    createEffect(() => {
+        const diff = amount() - prevAmount;
+        setEarned(diff);
+        prevAmount = amount();
+    });
 
     const storeValue = {
         amount,
-        addAmount,
         setAmount,
         earned,
-        setEarned,
     };
 
     return <StoreContext.Provider value={storeValue}>{props.children}</StoreContext.Provider>;
@@ -21,10 +25,8 @@ export const StoreProvider = (props: { children: JSXElement }) => {
 
 interface UseStore {
     amount: Accessor<number>;
-    addAmount: (added: number) => void;
     setAmount: Setter<number>;
-    earned: Accessor<string>;
-    setEarned: Setter<string>;
+    earned: Accessor<number>;
 }
 
 export const useStore = () => useContext(StoreContext) as UseStore;

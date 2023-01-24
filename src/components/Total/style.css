@@ -1,9 +1,27 @@
 .total {
-    min-width: 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
 }
 
 .total>img {
     width: auto;
     height: 100%;
-    margin-right: 4px;
+}
+
+.total .animated {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+}
+
+.total .digits {
+    animation-name: counter;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+.total .hide {
+    width: 0;
 }

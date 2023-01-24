@@ -1,10 +1,9 @@
 .source {
-  --source-font-size: 1rem;
   display: grid;
   grid-auto-rows: 1em;
   width: fit-content;
   height: 2rem;
-  font-size: var(--source-font-size);
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #fff;
@@ -15,17 +14,19 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
+  color: rgb(91, 211, 127);
+  opacity: 0;
 }
 
 .number {
   width: 100%;
-  height: var(--source-font-size);
+  height: 1em;
   overflow: hidden;
 }
 
 .digits {
   display: grid;
-  grid-template-rows: repeat(10, var(--source-font-size));
+  grid-template-rows: repeat(10, 1em);
   animation-fill-mode: both;
   animation-timing-function: steps(10, end);
 }
@@ -641,6 +642,6 @@
   }
 
   to {
-    transform: translateY(calc(-10*var(--source-font-size)));
+    transform: translateY(-10em);
   }
 }
