@@ -10,9 +10,13 @@ function Digit(props: { value: string; iteration: number; parent: HTMLElement })
 
     return (
         <>
-            <Show when={props.value !== '-' && props.value !== '+'} fallback={<span>{props.value}</span>}>
+            <Show when={props.value !== "-" && props.value !== "+"} fallback={<span>{props.value}</span>}>
                 <div class="number">
-                    <div class={`digits num-${props.value} iteration-${props.iteration} ${opacity === "0" ? "delay" : ""}`}>
+                    <div
+                        class={`digits num-${props.value} iteration-${props.iteration} ${
+                            opacity === "0" ? "delay" : ""
+                        }`}
+                    >
                         <div>0</div>
                         <div>1</div>
                         <div>2</div>
@@ -49,12 +53,8 @@ export default function Source() {
     createEffect(() => {
         amount();
         const opacity = getComputedStyle(sourceEl).getPropertyValue("opacity");
-        animateTo(
-            sourceEl,
-            { opacity: [1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] },
-            { duration: SOURCE_VISIBLE_TIME },
-        );
-    })
+        animateTo(sourceEl, { opacity: [1, 1, 1, 0], offset: [0, 0.05, 0.95, 1] }, { duration: SOURCE_VISIBLE_TIME });
+    });
 
     createEffect(() => {
         const earnedValue = earned();
@@ -87,7 +87,9 @@ export default function Source() {
         <>
             <section ref={sourceEl} class="source">
                 <div ref={earnedEl} class="earned">
-                    {numbers().map((n, i) => <Digit value={n} iteration={i - 1} parent={sourceEl} />)}
+                    {numbers().map((n, i) => (
+                        <Digit value={n} iteration={i - 1} parent={sourceEl} />
+                    ))}
                 </div>
                 <Total />
             </section>
