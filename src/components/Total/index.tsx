@@ -1,4 +1,4 @@
-import { createEffect } from "solid-js";
+import { createEffect, createRenderEffect } from "solid-js";
 import { useStore } from "../../store";
 import iconChart from "../../assets/images/chart_bar.svg";
 import "./style.css";
@@ -9,6 +9,7 @@ export default function Total(props: { delay?: number }) {
     let containerRef!: HTMLDivElement;
     let prev = "0000000000";
     let startingDigit = 9;
+    let prevStarting = 9;
 
     createEffect(() => {
         const children = [...containerRef.childNodes] as HTMLDivElement[];
@@ -36,7 +37,14 @@ export default function Total(props: { delay?: number }) {
             }, (props.delay ?? 0) + 500);
         });
         prev = numbers();
+    });
+
+    createRenderEffect(() => {
+        prevStarting = startingDigit;
         startingDigit = 9;
+        for (let i = 0; i < numbers().length; i++) {
+            if (numbers()[i] !== "0" && startingDigit > i) startingDigit = i;
+        }
     });
 
     return (
@@ -45,31 +53,29 @@ export default function Total(props: { delay?: number }) {
             <div ref={containerRef} class="animated">
                 {numbers()
                     .split("")
-                    .map((num, i) => {
-                        if (num !== "0" && startingDigit > i) startingDigit = i;
-                        return (
-                            <div
-                                class="number"
-                                classList={{
-                                    hide: i < startingDigit,
-                                }}
-                            >
-                                <div class="digits">
-                                    <div>0</div>
-                                    <div>1</div>
-                                    <div>2</div>
-                                    <div>3</div>
-                                    <div>4</div>
-                                    <div>5</div>
-                                    <div>6</div>
-                                    <div>7</div>
-                                    <div>8</div>
-                                    <div>9</div>
-                                    <div>0</div>
-                                </div>
+                    .map((_, i) => (
+                        <div
+                            class="number"
+                            classList={{
+                                hide: i < startingDigit && i < prevStarting,
+                                "fade-out": i < startingDigit && i >= prevStarting,
+                            }}
+                        >
+                            <div class="digits">
+                                <div>0</div>
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                                <div>4</div>
+                                <div>5</div>
+                                <div>6</div>
+                                <div>7</div>
+                                <div>8</div>
+                                <div>9</div>
+                                <div>0</div>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
             </div>
         </div>
     );

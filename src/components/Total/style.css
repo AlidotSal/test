@@ -1,6 +1,6 @@
 .total {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 0.25rem;
 }
 
@@ -24,4 +24,25 @@
 
 .total .hide {
     width: 0;
+}
+
+.total .fade-out {
+    animation-name: fadeout;
+    animation-delay: 2.5s;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeout {
+    from {
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    to {
+        width: 0;
+        opacity: 0;
+        visibility: collapse;
+    }
 }
