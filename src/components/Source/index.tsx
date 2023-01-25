@@ -45,7 +45,7 @@ export default function Source() {
     };
     let sourceEl!: HTMLDivElement;
     let earnedEl!: HTMLDivElement;
-    const SOURCE_VISIBLE_TIME = 4000;
+    const SOURCE_VISIBLE_TIME = 4500;
     const EARNED_VISIBLE_TIME = 2000;
 
     createEffect(() => {

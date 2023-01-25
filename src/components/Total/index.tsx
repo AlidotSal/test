@@ -27,13 +27,14 @@ export default function Total(props: { delay?: number }) {
             //add 0.01 to step into the next number
             const rate = cycles + difference * 0.1 + 0.01;
             counterAnim.updatePlaybackRate(rate);
-            counterAnim.currentTime = 50 * (Number(prev[i]) === 0 ? 10 : Number(prev[i])) + 1;
+            //add 10x the duration(500) to make reverse animation run till the end
+            counterAnim.currentTime = 5000 + 50 * (Number(prev[i]) === 0 ? 10 : Number(prev[i])) + 1;
             setTimeout(() => {
                 counterAnim.play();
             }, props.delay ?? 0);
             setTimeout(() => {
                 counterAnim.pause();
-                counterAnim.currentTime = 50 * (Number(numbers()[i]) === 0 ? 10 : Number(numbers()[i])) + 1;
+                counterAnim.currentTime = 50 * Number(numbers()[i]) + 1;
             }, (props.delay ?? 0) + 500);
         });
         prev = numbers();
