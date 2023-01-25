@@ -14,7 +14,9 @@ export default function DebugUI() {
                     min={0}
                     max={1000000000}
                     oninput="validity.valid||(value='');"
-                    onChange={(e) => setAmount(parseInt(e.target.value))}
+                    onChange={(e) => {
+                        if (parseInt(e.target.value)) setAmount(parseInt(e.target.value));
+                    }}
                 />
             </label>
             <label>
