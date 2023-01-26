@@ -26,7 +26,7 @@
 
 .digits {
   display: grid;
-  letter-spacing: 0;
+  letter-spacing: 0.6px;
   grid-template-rows: repeat(10, 1em);
   animation-fill-mode: both;
   animation-timing-function: steps(10, end);
