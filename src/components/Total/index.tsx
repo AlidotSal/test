@@ -1,6 +1,6 @@
 import { createEffect, createRenderEffect, createSignal } from "solid-js";
 import { useStore } from "../../store";
-import iconChart from "../../assets/images/chart_bar.svg";
+import iconChart from "../../assets/images/source.svg";
 import "./style.css";
 
 export default function Total(props: { delay?: number }) {
