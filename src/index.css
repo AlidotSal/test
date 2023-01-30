@@ -44,6 +44,7 @@ img {
 button,
 input {
   overflow: visible;
+  font-size: inherit;
 }
 
 .bar {
@@ -67,9 +68,12 @@ input {
 }
 
 .box {
-  width: 500px;
-  height: 260px;
-  margin: auto;
+  width: 100%;
+  height: 100%;
   padding: 3rem;
   background-color: rgb(27, 36, 44);
+  background-image: url(https://interfaceingame.com/wp-content/uploads/control/control-health-bar.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left 100%;
 }

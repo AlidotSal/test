@@ -1,9 +1,12 @@
 .source {
+  position: absolute;
+  bottom: 147px;
+  left: 98px;
   display: grid;
   grid-auto-rows: 1em;
   width: fit-content;
   height: 2rem;
-  font-size: 1rem;
+  font-size: 19px;
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #fff;
