@@ -8,7 +8,7 @@ export default function DebugUI() {
     return (
         <section class="debug">
             <label>
-                set total value:
+                Set total value:
                 <input
                     type="number"
                     min={0}
@@ -20,7 +20,7 @@ export default function DebugUI() {
                 />
             </label>
             <label>
-                add or remove value(with +/-):
+                Add or remove value(with +/-):
                 <input
                     type="text"
                     placeholder="example: +200"

@@ -1,29 +1,31 @@
 .debug {
     position: relative;
-    top: 0;
+    top: 2em;
     left: 75%;
     display: grid;
     gap: 1rem;
-    width: 16em;
+    width: 285px;
     height: 80%;
     margin-top: 1rem;
     padding: 1.2em;
-    font-size: medium;
+    font-size: large;
     color: #f1f1f1;
     outline: 1px solid rgb(255 255 255 / 0.25);
     border-radius: 5px;
-    background-color: rgb(31 31 31 / 0.5);
+    background-color: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(4px);
 }
 
 .debug input {
-    width: 9rem;
+    width: 14rem;
     margin-top: 1rem;
-    padding: 0.1em 0.4em;
+    padding: 0.2em 0.8em;
 }
 
 .debug button {
     width: 6rem;
     height: 2.2rem;
+    margin: 0 auto;
     font-weight: bold;
     color: white;
     background-color: #b51c1c;
