@@ -29,7 +29,7 @@
 .total .fade-out {
     animation-name: fadeout;
     animation-delay: 2.4s;
-    animation-duration: 0.11s;
+    animation-duration: 0.2s;
     animation-fill-mode: both;
 }
 
