@@ -1,4 +1,4 @@
-import { createEffect, createRenderEffect, createSignal } from "solid-js";
+import { createEffect, createRenderEffect } from "solid-js";
 import { useStore } from "../../store";
 import iconChart from "../../assets/images/source.svg";
 import "./style.css";
@@ -6,7 +6,6 @@ import "./style.css";
 export default function Total(props: { delay?: number }) {
     const { amount } = useStore();
     const numbers = () => amount().toString().padStart(10, "0");
-    const [move, setMove] = createSignal<{ transform: string; transition: string }>({ transform: "", transition: "" });
     let containerRef!: HTMLDivElement;
     let prev = "0000000000";
     let startingDigit = 9;
@@ -47,24 +46,12 @@ export default function Total(props: { delay?: number }) {
         for (let i = 0; i < numbers().length; i++) {
             if (numbers()[i] !== "0" && startingDigit > i) startingDigit = i;
         }
-        if (startingDigit > prevStarting) {
-            setMove({
-                transform: `translateX(-${(startingDigit - prevStarting) / 1.68}em)`,
-                transition: "transform 0.22s 2.5s",
-            });
-        } else {
-            setMove({ transform: "translateX(0)", transition: "none" });
-        }
     });
 
     return (
         <div class="total">
             <img src={iconChart} alt="" />
-            <div
-                ref={containerRef}
-                class="animated"
-                style={{ transform: move().transform, transition: move().transition }}
-            >
+            <div ref={containerRef} class="animated">
                 {numbers()
                     .split("")
                     .map((_, i) => (

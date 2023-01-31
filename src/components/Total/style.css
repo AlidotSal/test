@@ -36,9 +36,13 @@
 @keyframes fadeout {
     from {
         opacity: 1;
+        visibility: visible;
+        max-width: 2em;
     }
 
     to {
         opacity: 0;
+        visibility: hidden;
+        max-width: 0;
     }
 }
