@@ -86,7 +86,7 @@ export default function Source() {
     return (
         <>
             <section ref={sourceEl} class="source">
-                <div ref={earnedEl} class="earned">
+                <div ref={earnedEl} class={`earned ${earned() > 0 ? "green" : "red"}`}>
                     {numbers().map((n, i) => (
                         <Digit value={n} iteration={i - 1} parent={sourceEl} />
                     ))}
